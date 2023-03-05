@@ -1,11 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
-import pswGenerator from './components/pswGenerator';
+import Generator from './components/pswGenerator';
+
 
 function App() {
   return (
     <div className="App">
-     <pswGenerator/>
+     <Generator/>
     </div>
   );
 }
