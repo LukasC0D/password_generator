@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-
 const pswGenerator = () => {
 
 
   return (
-    <div className='App'>
-      <div className='container'>
+    <div>
+      <div className='box'>
         <div className='generator'>
           <h2 className='genHeader'>
             Password Generator
@@ -57,9 +56,9 @@ const pswGenerator = () => {
              name='include-symbols' 
              />
           </div> 
-          <div className='generatorBtn'>
-            <button>Generate Password</button>
-          </div>
+          
+            <button className='generatorBtn'>Generate Password</button>
+          
         </div>
       </div>
     </div>
