@@ -1,6 +1,6 @@
 .App{
     min-height: 100vh;
-    background: #3b3b98;
+    background: #4747b4;
 }
 .box{
     width: 350px;
@@ -8,7 +8,7 @@
     padding-top: 200px;
 }
 .generator{
-    background: #23235b;
+    background: #39235b;
     border-radius: 3px;
     box-shadow: 0px 2px 10px rgba(255,255,255,0.2);
     padding: 20px;
@@ -28,7 +28,7 @@
 }
 .copyBtn{
     position: absolute;
-    background: #3b3b98;
+    background: #39235b;
     color: #fff;
     border: none;
     height: 40px;
@@ -37,8 +37,12 @@
     top: 3px;
     right: 3px;
 }
+.copyBtn:hover{
+    color: #b38383;
+    background-color:#3f1a77;
+}
 .generatorBtn{
-    background: #3b3b98;
+    background: #2e0f5c;
     border: none;
     display: block;
     width: 100%;
@@ -46,6 +50,9 @@
     color: #fff;
     font-size: 17px;
     cursor: pointer;
+}
+.generatorBtn:hover{
+    background: #3a1177;
 }
 .form-group{
     display: flex;
