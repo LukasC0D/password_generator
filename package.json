@@ -1,5 +1,6 @@
 {
   "name": "password_generator",
+  "homepage": "/password_generator/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
