@@ -13,6 +13,15 @@ const PswGenerator = () => {
   const [includeSymbols, setIncludeSymbols] = useState(false)
 
   const handleGeneratePassword = (e) => {
+
+    if(
+      !includeLowerCase && 
+      !includeUpperCase && 
+      !includeNumbers && 
+      !includeSymbols){
+      notify('You must select at least one option',true)
+    }
+
     let characterList = ''
 
     if(includeLowerCase) {
@@ -33,7 +42,6 @@ const PswGenerator = () => {
 
     setPassword(createPassword(characterList))
 
-    console.log(setPassword)
   }
   
   const createPassword = (characterList) => {
@@ -56,24 +64,44 @@ const PswGenerator = () => {
     newTextArea.remove()
   }
 
-  const notify =(message) => {
-    toast('🦄'+ " " +  message, {
-      position: "top-center",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
+  const notify =(message, hasError = false) => {
+    if(hasError){
+        toast.error(message, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        });
+    } else {
+        toast('🦄'+ " " +  message, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
       });
+    }
+    
   }
-
   const handleCopyPassword = (e) => {
-     copyToClipboard()
-     notify(COPY_SUCCESS)
+    if(password === ''){
+      notify('the blank is empty')
+    } else {
+    copyToClipboard()
+    notify(COPY_SUCCESS)
+    console.log(handleCopyPassword)
   }
-  console.log(handleCopyPassword)
+ }
+ 
+
+  
  
   return (
     <div>
