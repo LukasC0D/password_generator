@@ -1,5 +1,5 @@
 import './App.css';
-import Generator from './components/pswGenerator';
+import Generator from './components/PswGenerator';
 
 
 function App() {
