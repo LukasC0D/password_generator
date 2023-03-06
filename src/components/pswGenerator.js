@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import 'react-toastify/dist/ReactToastify.css'
+import {toast, ToastContainer} from "react-toastify"
+import { COPY_SUCCESS } from './message';
 import { numbers, upperCaseLetters, lowerCaseLetters, specialCharacters } from './Characters';
 const PswGenerator = () => {
 
@@ -44,6 +47,33 @@ const PswGenerator = () => {
     return password
 
   }
+  const copyToClipboard = () => {
+    const newTextArea = document.createElement('textarea')
+    newTextArea.innerText = password
+    document.body.appendChild(newTextArea)
+    newTextArea.select()
+    document.execCommand('copy')
+    newTextArea.remove()
+  }
+
+  const notify =(message) => {
+    toast('🦄'+ " " +  message, {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      });
+  }
+
+  const handleCopyPassword = (e) => {
+     copyToClipboard()
+     notify(COPY_SUCCESS)
+  }
+  console.log(handleCopyPassword)
  
   return (
     <div>
@@ -54,7 +84,7 @@ const PswGenerator = () => {
           </h2>
           <div className='genPassword'>
             <h3>{password}</h3>
-            <button className='copyBtn'>
+            <button onClick={handleCopyPassword} className='copyBtn'>
             <i class="bi bi-clipboard"></i>
             </button>
           </div>
@@ -111,10 +141,22 @@ const PswGenerator = () => {
           </div> 
           
             <button 
-
               onClick={handleGeneratePassword}
-
-              className='generatorBtn'>Generate Password</button>
+              className='generatorBtn'>
+                Generate Password
+            </button>
+            <ToastContainer
+              position="top-center"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="light"
+            />
           
         </div>
       </div>
