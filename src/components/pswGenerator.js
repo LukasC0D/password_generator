@@ -11,8 +11,40 @@ const PswGenerator = () => {
 
   const handleGeneratePassword = (e) => {
     let characterList = ''
-  }
 
+    if(includeLowerCase) {
+      characterList += lowerCaseLetters
+    }
+
+    if(includeUpperCase) {
+      characterList += upperCaseLetters
+    }
+
+    if(includeNumbers) {
+      characterList += numbers
+    }
+
+    if(includeSymbols) {
+       characterList += specialCharacters
+    }
+
+    setPassword(createPassword(characterList))
+
+    console.log(setPassword)
+  }
+  
+  const createPassword = (characterList) => {
+    let password = ''
+    const characterListLength = characterList.length
+
+    for(let i=0; i < passwordLength; i++){
+      const characterIndex = Math.round(Math.random() * characterListLength)
+      password = password + characterList.charAt(characterIndex)
+    }
+    return password
+
+  }
+ 
   return (
     <div>
       <div className='box'>
@@ -21,7 +53,7 @@ const PswGenerator = () => {
             Password Generator
           </h2>
           <div className='genPassword'>
-            <h3>Password</h3>
+            <h3>{password}</h3>
             <button className='copyBtn'>
             <i class="bi bi-clipboard"></i>
             </button>
@@ -41,7 +73,7 @@ const PswGenerator = () => {
             <label htmlFor='uppercase-letters'>Include Uppercase Letters</label>
             <input 
              checked={includeUpperCase}
-             onChange={(e) => setIncludeUpperCase(e.target.value)}
+             onChange={(e) => setIncludeUpperCase(e.target.checked)}
              type="checkbox"
              id='uppercase-letters' 
              name='uppercase-letters' 
@@ -51,7 +83,7 @@ const PswGenerator = () => {
             <label htmlFor='lowercase-letters'>Include Lowercase Letters</label>
             <input
              checked={includeLowerCase}
-             onChange={(e) => setIncludeLowerCase(e.target.value)}  
+             onChange={(e) => setIncludeLowerCase(e.target.checked)}  
              type="checkbox"
              id='lowercase-letters' 
              name='lowercase-letters' 
@@ -61,7 +93,7 @@ const PswGenerator = () => {
             <label htmlFor='include-numbers'>Include Numbers</label>
             <input  
              checked={includeNumbers}
-             onChange={(e) => setIncludeNumbers(e.target.value)} 
+             onChange={(e) => setIncludeNumbers(e.target.checked)} 
              type="checkbox"
              id='include-numbers' 
              name='include-numbers' 
@@ -71,14 +103,18 @@ const PswGenerator = () => {
             <label htmlFor='include-symbols'>Include Symbols</label>
             <input 
              checked={includeSymbols}
-             onChange={(e) => setIncludeSymbols(e.target.value)} 
+             onChange={(e) => setIncludeSymbols(e.target.checked)} 
              type="checkbox"
              id='include-symbols' 
              name='include-symbols' 
              />
           </div> 
           
-            <button onClick={handleGeneratePassword} className='generatorBtn'>Generate Password</button>
+            <button 
+
+              onClick={handleGeneratePassword}
+
+              className='generatorBtn'>Generate Password</button>
           
         </div>
       </div>
