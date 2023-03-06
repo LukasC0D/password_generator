@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/password_generator/static/css/main.78dd0cde.css",
-    "main.js": "/password_generator/static/js/main.5cbd8ec8.js",
+    "main.css": "/password_generator/static/css/main.be51587f.css",
+    "main.js": "/password_generator/static/js/main.6ca2bfca.js",
     "static/js/787.7da6eb2c.chunk.js": "/password_generator/static/js/787.7da6eb2c.chunk.js",
     "static/media/bootstrap-icons.woff?": "/password_generator/static/media/bootstrap-icons.6959d0d983ee318f8880.woff",
     "static/media/bootstrap-icons.woff2?": "/password_generator/static/media/bootstrap-icons.b2e5aab643c6f0fd2da6.woff2",
     "index.html": "/password_generator/index.html",
-    "main.78dd0cde.css.map": "/password_generator/static/css/main.78dd0cde.css.map",
-    "main.5cbd8ec8.js.map": "/password_generator/static/js/main.5cbd8ec8.js.map",
+    "main.be51587f.css.map": "/password_generator/static/css/main.be51587f.css.map",
+    "main.6ca2bfca.js.map": "/password_generator/static/js/main.6ca2bfca.js.map",
     "787.7da6eb2c.chunk.js.map": "/password_generator/static/js/787.7da6eb2c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.78dd0cde.css",
-    "static/js/main.5cbd8ec8.js"
+    "static/css/main.be51587f.css",
+    "static/js/main.6ca2bfca.js"
   ]
 }
