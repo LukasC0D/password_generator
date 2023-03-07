@@ -3,14 +3,15 @@ import 'react-toastify/dist/ReactToastify.css'
 import { toast, ToastContainer } from "react-toastify"
 import { COPY_SUCCESS } from './message';
 import { numbers, upperCaseLetters, lowerCaseLetters, specialCharacters } from './Characters';
+
 const PswGenerator = () => {
 
   const [previousPassword, setPreviousPassword] = useState([])
 
   const [password, setPassword] = useState('')
   const [passwordLength, setPasswordLength] = useState(20)
-  const [includeUpperCase, setIncludeUpperCase] = useState(false)
-  const [includeLowerCase, setIncludeLowerCase] = useState(false)
+  const [includeUpperCase, setIncludeUpperCase] = useState(true)
+  const [includeLowerCase, setIncludeLowerCase] = useState(true)
   const [includeNumbers, setIncludeNumbers] = useState(false)
   const [includeSymbols, setIncludeSymbols] = useState(false)
 
@@ -103,6 +104,12 @@ const PswGenerator = () => {
     }
   }
 
+  const handleDeleteItems = () => {
+     setPassword("")
+     setPreviousPassword([])
+     console.log(previousPassword)
+  }
+
   useEffect(() => {
     const retrievedItems = localStorage.getItem("password");
     if (!retrievedItems) localStorage.setItem("password", JSON.stringify(previousPassword));
@@ -112,7 +119,7 @@ const PswGenerator = () => {
   useEffect(() => { localStorage.setItem('password', JSON.stringify(previousPassword)) }, [previousPassword])
 
   return (
-    <div>
+    <div className='container'>
       <div className='box'>
         <div className='generator'>
           <h2 className='genHeader'>
@@ -194,9 +201,16 @@ const PswGenerator = () => {
             theme="light"
           />
         </div>
-        <div className="text-center container pt-4 text-white">
-          <h4>ankstesni slaptažodžiai (previous passwords)</h4>
-          {previousPassword.map((value, index) => <div key={index}>{value}</div>)}
+        <div className='d-flex'>
+          <div className="text-center container pt-4 text-white">
+            <h4>ankstesni slaptažodžiai (previous passwords)</h4>
+            {previousPassword.map((value, index) => <div key={index}>{value}</div>)}
+          </div>
+          <div>
+            <button className='btn btn-danger mt-4'
+              onClick={handleDeleteItems}> Clear
+            </button>
+          </div>
         </div>
       </div>
     </div>
